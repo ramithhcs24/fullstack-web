@@ -8,7 +8,7 @@ function Academics() {
         title="Academics"
         subtitle="Outcome-driven curriculum, project-based learning, and global exposure."
       />
-      <section className="mx-auto grid w-full max-w-7xl gap-4 px-4 py-12 md:grid-cols-3 lg:px-6">
+      <section className="mx-auto grid w-full max-w-7xl gap-8 px-6 py-24 md:grid-cols-3">
         <SectionCard title="Programs" description="Undergraduate, postgraduate, and doctoral tracks across engineering and sciences." />
         <SectionCard title="Curriculum" description="Industry-aligned modules, research practice, and hands-on capstone experiences." />
         <SectionCard title="Academic Calendar" description="Semester model with continuous assessment, internships, and immersion terms." />

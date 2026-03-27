@@ -8,71 +8,81 @@ function EventCard({ event, interactive = true }) {
 
   return (
     <article
-      className={`overflow-hidden rounded-xl border border-gray-100 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
-        isMarquee
-          ? "bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 text-white"
-          : "bg-white text-slate-900"
-      }`}
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
     >
-      <img
-        src={getEventImage(event)}
-        alt={event.title || "Campus event"}
-        className="h-44 w-full object-cover"
-        loading="lazy"
-      />
-      <div className="p-6">
-      <div className="flex flex-wrap items-center gap-2">
-        <span
-          className={`rounded-full px-3 py-1 text-xs font-semibold ${
-            isMarquee ? "bg-white/20 text-white" : "bg-blue-100 text-blue-700"
-          }`}
-        >
-          {event.club || "Campus Club"}
-        </span>
-        <span
-          className={`rounded-full px-3 py-1 text-xs font-semibold uppercase ${
-            isMarquee ? "bg-white/20 text-white" : "bg-slate-100 text-slate-700"
-          }`}
-        >
-          {event.type}
-        </span>
+      {/* IMAGE */}
+      <div className="relative overflow-hidden">
+        <img
+          src={getEventImage(event)}
+          alt={event.title || "Campus event"}
+          className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+
+        {/* overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
       </div>
 
-      <h3 className={`mt-4 text-xl font-bold ${isMarquee ? "text-white" : "text-slate-900"}`}>{event.title}</h3>
-      <p className={`mt-2 text-sm leading-relaxed ${isMarquee ? "text-blue-50" : "text-slate-500"}`}>
-        {event.description}
-      </p>
+      {/* CONTENT */}
+      <div className="p-6">
+        
+        {/* TAGS */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full bg-indigo-500/20 px-3 py-1 text-xs font-semibold text-indigo-300">
+            {event.club || "Campus Club"}
+          </span>
 
-      {interactive ? <div className="mt-5 flex flex-wrap gap-2">
-        {(event.type === "volunteer" || event.type === "both") && event.volunteerLink && (
-          <a
-            href={event.volunteerLink}
-            target="_blank"
-            rel="noreferrer"
-            className={`rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-300 ${
-              isMarquee
-                ? "border border-white/40 bg-white text-blue-600 hover:bg-blue-50"
-                : "border border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
-            }`}
-          >
-            Volunteer
-          </a>
+          <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase text-slate-300">
+            {event.type}
+          </span>
+
+          {isMarquee && (
+            <span className="rounded-full bg-purple-500/20 px-3 py-1 text-xs font-semibold text-purple-300">
+              Featured
+            </span>
+          )}
+        </div>
+
+        {/* TITLE */}
+        <h3 className="mt-4 text-xl font-semibold text-white group-hover:text-indigo-400 transition">
+          {event.title}
+        </h3>
+
+        {/* DESCRIPTION */}
+        <p className="mt-2 text-sm leading-relaxed text-slate-400">
+          {event.description}
+        </p>
+
+        {/* ACTIONS */}
+        {interactive ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            
+            {(event.type === "volunteer" || event.type === "both") && event.volunteerLink && (
+              <a
+                href={event.volunteerLink}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+              >
+                Volunteer
+              </a>
+            )}
+
+            {(event.type === "register" || event.type === "both") && event.registerLink && (
+              <a
+                href={event.registerLink}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white transition hover:bg-indigo-400"
+              >
+                Register
+              </a>
+            )}
+
+          </div>
+        ) : (
+          <p className="mt-5 text-sm text-slate-500">Exhibition only</p>
         )}
-        {(event.type === "register" || event.type === "both") && event.registerLink && (
-          <a
-            href={event.registerLink}
-            target="_blank"
-            rel="noreferrer"
-            className={`rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-700 ${
-              isMarquee
-                ? "bg-white text-blue-600 hover:bg-blue-50"
-                : ""
-            }`}
-          >
-            Register
-          </a>
-        )}
-      </div> : <p className={`mt-5 text-sm font-medium ${isMarquee ? "text-blue-50" : "text-slate-500"}`}>Exhibition only</p>}
       </div>
     </article>
   );

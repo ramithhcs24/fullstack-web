@@ -16,7 +16,7 @@ function Placements() {
         title="Placements"
         subtitle="Career outcomes powered by training, mentoring, and recruiter partnerships."
       />
-      <section className="mx-auto grid w-full max-w-7xl gap-6 px-4 py-12 md:grid-cols-3 lg:px-6">
+      <section className="mx-auto grid w-full max-w-7xl gap-8 px-6 py-24 md:grid-cols-3">
         <SectionCard
           title="Top Recruiters"
           description="Infosys, TCS, Zoho, Bosch, Amazon, and many high-growth startups."
@@ -34,20 +34,20 @@ function Placements() {
         />
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 pb-14 lg:px-6">
-        <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-md md:p-8">
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold text-slate-900">Placement Performance (Past 5 Years)</h2>
-            <p className="mt-1 text-sm text-slate-500">
+      <section className="mx-auto w-full max-w-7xl px-6 py-24">
+        <div className="rounded-xl border border-white/10 bg-white/5 p-6 shadow-md md:p-8">
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold text-white">Placement Performance (Past 5 Years)</h2>
+            <p className="mt-1 text-sm text-slate-300">
               Year-wise placement rate with highest and average package trends.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-8">
             {PLACEMENT_TRENDS.map((item) => (
               <div key={item.year}>
                 <div className="mb-1 flex items-center justify-between text-sm">
-                  <span className="font-semibold text-slate-700">{item.year}</span>
+                  <span className="font-semibold text-slate-300">{item.year}</span>
                   <span className="font-semibold text-blue-600">{item.rate}% placed</span>
                 </div>
                 <div className="h-3 overflow-hidden rounded-full bg-slate-100">
@@ -56,7 +56,7 @@ function Placements() {
                     style={{ width: `${item.rate}%` }}
                   />
                 </div>
-                <div className="mt-1 flex flex-wrap gap-4 text-xs text-slate-500">
+                <div className="mt-1 flex flex-wrap gap-4 text-xs text-slate-300">
                   <span>Highest: {item.highestLpa} LPA</span>
                   <span>Average: {item.averageLpa} LPA</span>
                 </div>
@@ -64,18 +64,18 @@ function Placements() {
             ))}
           </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl bg-slate-50 p-4 ring-1 ring-gray-100">
-              <p className="text-xs font-semibold uppercase text-slate-500">Latest Placement Rate</p>
-              <p className="mt-1 text-2xl font-bold text-slate-900">97%</p>
+          <div className="mt-8 grid gap-8 md:grid-cols-3">
+            <div className="rounded-xl bg-slate-50/5 p-4 ring-1 ring-white/10">
+              <p className="text-xs font-semibold uppercase text-slate-300">Latest Placement Rate</p>
+              <p className="mt-1 text-2xl font-bold text-white">97%</p>
             </div>
-            <div className="rounded-xl bg-slate-50 p-4 ring-1 ring-gray-100">
-              <p className="text-xs font-semibold uppercase text-slate-500">Highest Package (2025-26)</p>
-              <p className="mt-1 text-2xl font-bold text-slate-900">30.2 LPA</p>
+            <div className="rounded-xl bg-slate-50/5 p-4 ring-1 ring-white/10">
+              <p className="text-xs font-semibold uppercase text-slate-300">Highest Package (2025-26)</p>
+              <p className="mt-1 text-2xl font-bold text-white">30.2 LPA</p>
             </div>
-            <div className="rounded-xl bg-slate-50 p-4 ring-1 ring-gray-100">
-              <p className="text-xs font-semibold uppercase text-slate-500">Average Package (2025-26)</p>
-              <p className="mt-1 text-2xl font-bold text-slate-900">6.9 LPA</p>
+            <div className="rounded-xl bg-slate-50/5 p-4 ring-1 ring-white/10">
+              <p className="text-xs font-semibold uppercase text-slate-300">Average Package (2025-26)</p>
+              <p className="mt-1 text-2xl font-bold text-white">6.9 LPA</p>
             </div>
           </div>
         </div>

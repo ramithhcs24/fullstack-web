@@ -29,56 +29,91 @@ function Home() {
 
   return (
     <div>
-      <section className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 text-white">
-        <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 py-20 lg:grid-cols-2 lg:px-6">
+      {/* 🔥 HERO SECTION */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white">
+        
+        {/* Glow */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-indigo-500 blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-purple-500 blur-3xl"></div>
+        </div>
+
+        <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 py-24 lg:grid-cols-2">
+          
+          {/* LEFT */}
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-100">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">
               {UNIVERSITY.shortName}
             </p>
-            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+
+            <h1 className="mt-4 text-5xl font-bold leading-tight lg:text-6xl">
               {UNIVERSITY.name}
             </h1>
-            <p className="mt-4 max-w-xl text-blue-100">{UNIVERSITY.tagline}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
+
+            <p className="mt-5 max-w-xl text-lg text-blue-100">
+              {UNIVERSITY.tagline}
+            </p>
+
+            {/* CTA */}
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="/admissions"
-                className="rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white transition-all duration-300 hover:bg-blue-700"
+                className="rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white transition hover:bg-indigo-400"
               >
                 Apply Now
               </Link>
+
               <Link
                 to="/campus-life"
-                className="rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-700 transition-all duration-300 hover:bg-gray-100"
+                className="rounded-xl border border-white/20 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/10"
               >
                 Explore Campus Life
               </Link>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+
+          {/* RIGHT (Highlights) */}
+          <div className="grid gap-4 sm:grid-cols-2">
             {HIGHLIGHTS.map((item) => (
-              <div key={item.title} className="rounded-xl bg-white/15 p-4 ring-1 ring-white/30 backdrop-blur-sm">
-                <p className="text-lg font-bold">{item.title}</p>
-                <p className="mt-1 text-sm text-blue-100">{item.description}</p>
+              <div
+                key={item.title}
+                className="rounded-2xl bg-white/10 p-5 backdrop-blur-md ring-1 ring-white/20 transition hover:bg-white/20"
+              >
+                <p className="text-lg font-semibold">{item.title}</p>
+                <p className="mt-1 text-sm text-blue-100">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="featured-events" className="mx-auto w-full max-w-7xl px-4 py-14 lg:px-6">
-        <div className="mb-6 flex items-end justify-between">
+      {/* 🔥 FEATURED EVENTS */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-24">
+        
+        <div className="mb-16 flex items-end justify-between">
           <div>
-            <h2 className="text-3xl font-bold text-slate-900">Featured Marquee Events</h2>
-            <p className="mt-1 text-slate-500">The largest flagship experiences at AIT.</p>
+            <h2 className="text-3xl font-bold text-white">
+              Featured Events
+            </h2>
+            <p className="mt-2 text-slate-300">
+              The biggest experiences at {UNIVERSITY.shortName}
+            </p>
           </div>
-          <Link to="/campus-life" className="text-sm font-semibold text-blue-600 transition-all duration-300 hover:text-blue-700">
-            View all events
+
+          <Link
+            to="/campus-life"
+            className="text-sm font-semibold text-blue-600 hover:text-blue-700"
+          >
+            View all →
           </Link>
         </div>
+
         {loading ? (
           <LoadingState label="Loading marquee events..." />
         ) : featuredEvents.length ? (
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {featuredEvents.map((event) => (
               <EventCard key={event._id || event.id} event={event} />
             ))}
@@ -91,8 +126,19 @@ function Home() {
         )}
       </section>
 
-      <section id="highlights" className="mx-auto w-full max-w-7xl px-4 pb-16 lg:px-6">
-        <div className="grid gap-6 md:grid-cols-3">
+      {/* 🔥 HIGHLIGHTS SECTION */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-24">
+        
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl font-bold text-white">
+            Why Choose {UNIVERSITY.shortName}?
+          </h2>
+          <p className="mt-2 text-slate-300">
+            Excellence across academics, research, and campus life
+          </p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3">
           <SectionCard
             title="Placements Excellence"
             description="Career readiness integrated with mentoring, mock interviews, and recruiter connects."

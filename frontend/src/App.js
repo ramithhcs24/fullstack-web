@@ -15,9 +15,13 @@ import ClubHeadLogin from "./pages/ClubHeadLogin";
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-[#020617] text-white">
+      
+      {/* Navbar */}
       <Navbar />
-      <main>
+
+      {/* Main Content */}
+      <main className="relative">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -33,6 +37,8 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+
+      {/* Footer */}
       <Footer />
     </div>
   );

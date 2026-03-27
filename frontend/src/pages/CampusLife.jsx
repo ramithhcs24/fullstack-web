@@ -37,8 +37,8 @@ function CampusLife() {
         past: Array.isArray(past) ? past : [],
         marquee: Array.isArray(marquee) ? marquee : [],
       });
-    } catch (fetchError) {
-      setError("Unable to load events right now. Please try again shortly.");
+    } catch {
+      setError("Unable to load events right now.");
     } finally {
       setLoading(false);
     }
@@ -53,7 +53,7 @@ function CampusLife() {
       ...eventsByCategory.upcoming,
       ...eventsByCategory.past,
       ...eventsByCategory.marquee,
-    ].map((event) => event.club);
+    ].map((e) => e.club);
     return [...new Set(clubs.filter(Boolean))].sort();
   }, [eventsByCategory]);
 
@@ -74,143 +74,153 @@ function CampusLife() {
     <div>
       <PageHero
         title="Campus Life"
-        subtitle="Join ongoing campus events and explore our event history gallery."
+        subtitle="Explore, participate, and experience campus events."
       />
 
-      <section className="mx-auto w-full max-w-7xl px-4 py-12 lg:px-6">
-        <div className="mb-10 grid gap-6 rounded-xl border border-gray-100 bg-white p-6 shadow-md md:grid-cols-[1.4fr_1fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">
-              Campus Events Desk
-            </p>
-            <h2 className="mt-2 text-3xl font-bold text-slate-900">Current events are open for registration</h2>
-            <p className="mt-3 text-slate-500">
-              Upcoming and marquee events include active registration and volunteer links. Past events are shown as a gallery to showcase how campus activities were conducted.
-            </p>
-          </div>
-          <div className="rounded-xl bg-slate-900 p-5 text-white">
-            <p className="text-sm text-slate-200">Need to revisit completed events?</p>
-            <a
-              href="#past-events"
-              className="mt-3 inline-flex rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-all duration-300 hover:bg-gray-100"
-            >
-              Check Past Events
-            </a>
-          </div>
-        </div>
+      <section className="bg-slate-950 py-24">
+        <div className="mx-auto max-w-7xl px-6">
 
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-2xl font-bold text-slate-900">Events Hub</h2>
-          <button
-            onClick={() => setShowFilters((prev) => !prev)}
-            className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-all duration-300 hover:bg-gray-100"
-          >
-            Filter
-          </button>
-        </div>
+          {/* HEADER BLOCK */}
+          <div className="mb-16 grid gap-6 lg:grid-cols-2">
+            <div>
+              <h2 className="text-3xl font-bold text-white">
+                Events Hub
+              </h2>
+              <p className="mt-3 text-slate-400">
+                Discover events, register, volunteer, and explore campus activity.
+              </p>
+            </div>
 
-        {showFilters && (
-          <div className="mb-6 grid gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-md md:grid-cols-2">
-            <select
-              value={filters.role}
-              onChange={(e) => setFilters((prev) => ({ ...prev, role: e.target.value }))}
-              className="rounded-lg border border-gray-300 px-3 py-2 text-sm text-slate-700"
-            >
-              <option value="all">All Roles</option>
-              <option value="volunteer">Volunteer</option>
-              <option value="register">Register</option>
-              <option value="both">Both</option>
-            </select>
-            <select
-              value={filters.club}
-              onChange={(e) => setFilters((prev) => ({ ...prev, club: e.target.value }))}
-              className="rounded-lg border border-gray-300 px-3 py-2 text-sm text-slate-700"
-            >
-              <option value="all">All Clubs</option>
-              {allClubs.map((club) => (
-                <option key={club} value={club}>
-                  {club}
-                </option>
-              ))}
-            </select>
+            <div className="flex items-center justify-end">
+              <button
+                onClick={() => setShowFilters((prev) => !prev)}
+                className="rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+              >
+                Toggle Filters
+              </button>
+            </div>
           </div>
-        )}
-        {error && (
-          <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-700 shadow-sm">
-            {error}
-          </div>
-        )}
 
-        <div className="space-y-12">
-          <div>
-            <h3 className="mb-4 text-2xl font-bold text-slate-900">Marquee Events</h3>
-            {loading ? (
-              <LoadingState label="Loading marquee events..." />
-            ) : filtered.marquee.length ? (
-              <div className="grid gap-4 md:grid-cols-2">
-                {filtered.marquee.map((event) => (
-                  <EventCard key={event._id || event.id} event={event} />
+          {/* FILTERS */}
+          {showFilters && (
+            <div className="mb-10 grid gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl md:grid-cols-2">
+              <select
+                value={filters.role}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, role: e.target.value }))
+                }
+                className="rounded-lg bg-white/10 px-3 py-2 text-white outline-none"
+              >
+                <option value="all">All Roles</option>
+                <option value="volunteer">Volunteer</option>
+                <option value="register">Register</option>
+                <option value="both">Both</option>
+              </select>
+
+              <select
+                value={filters.club}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, club: e.target.value }))
+                }
+                className="rounded-lg bg-white/10 px-3 py-2 text-white outline-none"
+              >
+                <option value="all">All Clubs</option>
+                {allClubs.map((club) => (
+                  <option key={club} value={club}>
+                    {club}
+                  </option>
                 ))}
-              </div>
-            ) : (
-              <EmptyState
-                title="No marquee events yet"
-                description="Add featured events to showcase major campus activities."
-              />
-            )}
+              </select>
+            </div>
+          )}
+
+          {/* ERROR */}
+          {error && (
+            <div className="mb-6 rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-red-300">
+              {error}
+            </div>
+          )}
+
+          {/* SECTIONS */}
+          <div className="space-y-20">
+
+            {/* MARQUEE */}
+            <div>
+              <h3 className="mb-6 text-2xl font-semibold text-white">
+                Featured Events
+              </h3>
+              {loading ? (
+                <LoadingState label="Loading..." />
+              ) : filtered.marquee.length ? (
+                <div className="grid gap-6 md:grid-cols-2">
+                  {filtered.marquee.map((event) => (
+                    <EventCard key={event._id || event.id} event={event} />
+                  ))}
+                </div>
+              ) : (
+                <EmptyState title="No featured events" />
+              )}
+            </div>
+
+            {/* UPCOMING */}
+            <div>
+              <h3 className="mb-6 text-2xl font-semibold text-white">
+                Upcoming Events
+              </h3>
+              {loading ? (
+                <LoadingState label="Loading..." />
+              ) : filtered.upcoming.length ? (
+                <div className="grid gap-6 md:grid-cols-2">
+                  {filtered.upcoming.map((event) => (
+                    <EventCard key={event._id || event.id} event={event} />
+                  ))}
+                </div>
+              ) : (
+                <EmptyState title="No upcoming events" />
+              )}
+            </div>
+
+            {/* PAST */}
+            <div>
+              <h3 className="mb-6 text-2xl font-semibold text-white">
+                Past Events
+              </h3>
+              {loading ? (
+                <LoadingState label="Loading..." />
+              ) : filtered.past.length ? (
+                <div className="grid gap-6 md:grid-cols-2">
+                  {filtered.past.map((event) => (
+                    <EventCard
+                      key={event._id || event.id}
+                      event={event}
+                      interactive={false}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <EmptyState title="No past events" />
+              )}
+            </div>
+
           </div>
 
-          <div>
-            <h3 className="mb-4 text-2xl font-bold text-slate-900">Upcoming Events</h3>
-            {loading ? (
-              <LoadingState label="Loading upcoming events..." />
-            ) : filtered.upcoming.length ? (
-              <div className="grid gap-4 md:grid-cols-2">
-                {filtered.upcoming.map((event) => (
-                  <EventCard key={event._id || event.id} event={event} />
-                ))}
-              </div>
-            ) : (
-              <EmptyState
-                title="No upcoming events"
-                description="Check again later for new club activities."
-              />
-            )}
-          </div>
-
-          <div id="past-events">
-            <h3 className="mb-4 text-2xl font-bold text-slate-900">Past Events</h3>
-            <p className="mb-4 text-sm text-slate-500">
-              Past events are displayed for exhibition only. Registration is not available.
+          {/* CTA */}
+          <div className="mt-24 text-center">
+            <h3 className="text-2xl font-semibold text-white">
+              Are you a Club Head?
+            </h3>
+            <p className="mt-3 text-slate-400">
+              Manage and publish events through your dashboard.
             </p>
-            {loading ? (
-              <LoadingState label="Loading past events..." />
-            ) : filtered.past.length ? (
-              <div className="grid gap-4 md:grid-cols-2">
-                {filtered.past.map((event) => (
-                  <EventCard key={event._id || event.id} event={event} interactive={false} />
-                ))}
-              </div>
-            ) : (
-              <EmptyState
-                title="No past events"
-                description="Completed events will be archived here."
-              />
-            )}
-          </div>
-        </div>
 
-        <div className="mt-14 rounded-xl border border-blue-100 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 p-8 text-center text-white shadow-md">
-          <h3 className="text-2xl font-bold">If you are a club head click here</h3>
-          <p className="mx-auto mt-2 max-w-2xl text-blue-100">
-            You will be redirected to login and then to the event creation page.
-          </p>
-          <Link
-            to="/club-head/login"
-            className="mt-5 inline-flex rounded-lg bg-white px-4 py-2 text-sm font-semibold text-blue-600 transition-all duration-300 hover:bg-blue-50"
-          >
-            Club Head Access
-          </Link>
+            <Link
+              to="/club-head/login"
+              className="mt-6 inline-block rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white transition hover:bg-indigo-400"
+            >
+              Go to Dashboard
+            </Link>
+          </div>
+
         </div>
       </section>
     </div>

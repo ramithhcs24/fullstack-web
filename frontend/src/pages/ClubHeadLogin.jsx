@@ -61,7 +61,7 @@ function ClubHeadLogin() {
 
           {message && <p className="mt-3 text-sm text-red-600">{message}</p>}
 
-          <button className="mt-5 w-full rounded-lg bg-indigo-600 px-4 py-2.5 font-semibold text-white hover:bg-indigo-700">
+          <button className="mt-5 w-full rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white transition hover:bg-indigo-400">
             Login and Continue
           </button>
 

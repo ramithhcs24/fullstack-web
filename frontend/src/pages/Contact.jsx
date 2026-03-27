@@ -9,7 +9,7 @@ function Contact() {
         title="Contact"
         subtitle="Get in touch for admissions, academics, events, or general support."
       />
-      <section className="mx-auto grid w-full max-w-7xl gap-4 px-4 py-12 md:grid-cols-3 lg:px-6">
+      <section className="mx-auto grid w-full max-w-7xl gap-8 px-6 py-24 md:grid-cols-3">
         <SectionCard
           title="Address"
           description={`${UNIVERSITY.name}, Innovation Valley Road, ${UNIVERSITY.location}`}
