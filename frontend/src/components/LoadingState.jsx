@@ -1,8 +1,8 @@
 function LoadingState({ label = "Loading..." }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
-      <div className="flex items-center gap-3">
-        <span className="h-3 w-3 animate-pulse rounded-full bg-indigo-600" />
+    <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-md">
+      <div className="flex items-center justify-center gap-3 text-sm text-slate-500">
+        <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-600" />
         {label}
       </div>
     </div>

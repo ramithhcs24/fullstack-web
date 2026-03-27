@@ -7,11 +7,11 @@ import Admissions from "./pages/Admissions";
 import Alumni from "./pages/Alumni";
 import CampusLife from "./pages/CampusLife";
 import Contact from "./pages/Contact";
+import CreateEvent from "./pages/CreateEvent";
 import Departments from "./pages/Departments";
 import Home from "./pages/Home";
 import Placements from "./pages/Placements";
-import Research from "./pages/Research";
-import Students from "./pages/Students";
+import ClubHeadLogin from "./pages/ClubHeadLogin";
 
 function App() {
   return (
@@ -25,9 +25,9 @@ function App() {
           <Route path="/academics" element={<Academics />} />
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/placements" element={<Placements />} />
-          <Route path="/research" element={<Research />} />
           <Route path="/campus-life" element={<CampusLife />} />
-          <Route path="/students" element={<Students />} />
+          <Route path="/club-head/login" element={<ClubHeadLogin />} />
+          <Route path="/club-head/create-event" element={<CreateEvent />} />
           <Route path="/alumni" element={<Alumni />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />

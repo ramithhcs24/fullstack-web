@@ -59,6 +59,12 @@ function normalizeIncomingEvent(body) {
   if (!["upcoming", "past", "marquee"].includes(category)) {
     return { ok: false, message: "Category must be upcoming, past, or marquee." };
   }
+  if (category === "past") {
+    return {
+      ok: false,
+      message: "Past events are exhibition-only and cannot be created.",
+    };
+  }
 
   if (type === "volunteer" && !volunteerLink) {
     return { ok: false, message: "Volunteer link is required for volunteer type." };

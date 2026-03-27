@@ -13,9 +13,7 @@ export const NAV_LINKS = [
   { label: "Academics", path: "/academics" },
   { label: "Admissions", path: "/admissions" },
   { label: "Placements", path: "/placements" },
-  { label: "Research", path: "/research" },
   { label: "Campus Life", path: "/campus-life" },
-  { label: "Students", path: "/students" },
   { label: "Alumni", path: "/alumni" },
   { label: "Contact", path: "/contact" },
 ];
