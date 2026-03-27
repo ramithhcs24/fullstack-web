@@ -9,7 +9,10 @@ import CampusLife from "./pages/CampusLife";
 import Contact from "./pages/Contact";
 import CreateEvent from "./pages/CreateEvent";
 import Departments from "./pages/Departments";
+<<<<<<< HEAD
 import DepartmentPortfolio from "./pages/DepartmentPortfolio";
+=======
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
 import Home from "./pages/Home";
 import Placements from "./pages/Placements";
 import ClubHeadLogin from "./pages/ClubHeadLogin";
@@ -27,7 +30,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/departments" element={<Departments />} />
+<<<<<<< HEAD
           <Route path="/departments/:code" element={<DepartmentPortfolio />} />
+=======
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
           <Route path="/academics" element={<Academics />} />
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/placements" element={<Placements />} />

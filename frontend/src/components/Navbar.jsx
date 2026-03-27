@@ -37,7 +37,11 @@ function Navbar() {
                 `relative rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   isActive
                     ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md"
+<<<<<<< HEAD
                     : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+=======
+                    : "text-slate-600 hover:bg-slate-100 hover:text-white"
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
                 }`
               }
             >
@@ -63,7 +67,11 @@ function Navbar() {
                 `rounded-lg px-3 py-2 text-sm font-medium transition-all duration-300 ${
                   isActive
                     ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white"
+<<<<<<< HEAD
                     : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+=======
+                    : "text-slate-600 hover:bg-slate-100 hover:text-white"
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
                 }`
               }
             >

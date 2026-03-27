@@ -1,8 +1,40 @@
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import SectionCard from "../components/SectionCard";
 import { HIGHLIGHTS, UNIVERSITY } from "../data/universityData";
 
 function Home() {
+=======
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import EmptyState from "../components/EmptyState";
+import EventCard from "../components/EventCard";
+import LoadingState from "../components/LoadingState";
+import SectionCard from "../components/SectionCard";
+import { HIGHLIGHTS, UNIVERSITY } from "../data/universityData";
+
+const API_BASE = "https://fullstack-web-mvpk.onrender.com";
+
+function Home() {
+  const [featuredEvents, setFeaturedEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadMarquee = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/events?category=marquee`);
+        const data = await res.json();
+        setFeaturedEvents(Array.isArray(data) ? data.slice(0, 3) : []);
+      } catch (error) {
+        setFeaturedEvents([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadMarquee();
+  }, []);
+
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
   return (
     <div>
       {/* 🔥 HERO SECTION */}
@@ -34,13 +66,18 @@ function Home() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="/admissions"
+<<<<<<< HEAD
                 className="rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-500/20 transition hover:bg-indigo-400"
+=======
+                className="rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white transition hover:bg-indigo-400"
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
               >
                 Apply Now
               </Link>
 
               <Link
                 to="/campus-life"
+<<<<<<< HEAD
                 className="rounded-xl border border-white/40 bg-white/10 px-6 py-3 font-semibold text-white shadow-lg shadow-black/20 backdrop-blur transition hover:bg-white/15"
               >
                 Explore Campus Life
@@ -54,6 +91,12 @@ function Home() {
               >
                 College Layout
               </a>
+=======
+                className="rounded-xl border border-white/20 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/10"
+              >
+                Explore Campus Life
+              </Link>
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
             </div>
           </div>
 
@@ -74,6 +117,46 @@ function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
+=======
+      {/* 🔥 FEATURED EVENTS */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-24">
+        
+        <div className="mb-16 flex items-end justify-between">
+          <div>
+            <h2 className="text-3xl font-bold text-white">
+              Featured Events
+            </h2>
+            <p className="mt-2 text-slate-300">
+              The biggest experiences at {UNIVERSITY.shortName}
+            </p>
+          </div>
+
+          <Link
+            to="/campus-life"
+            className="text-sm font-semibold text-blue-600 hover:text-blue-700"
+          >
+            View all →
+          </Link>
+        </div>
+
+        {loading ? (
+          <LoadingState label="Loading marquee events..." />
+        ) : featuredEvents.length ? (
+          <div className="grid gap-6 md:grid-cols-2">
+            {featuredEvents.map((event) => (
+              <EventCard key={event._id || event.id} event={event} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState
+            title="No marquee events published yet"
+            description="Club heads can add marquee events from Campus Life."
+          />
+        )}
+      </section>
+
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
       {/* 🔥 HIGHLIGHTS SECTION */}
       <section className="mx-auto w-full max-w-7xl px-6 py-24">
         

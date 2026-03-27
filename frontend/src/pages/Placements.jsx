@@ -20,14 +20,26 @@ function Placements() {
         <SectionCard
           title="Top Recruiters"
           description="Infosys, TCS, Zoho, Bosch, Amazon, and many high-growth startups."
+<<<<<<< HEAD
+=======
+          imageUrl="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
         />
         <SectionCard
           title="Preparation"
           description="Mock interviews, coding practice, aptitude coaching, and profile building."
+<<<<<<< HEAD
+=======
+          imageUrl="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80"
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
         />
         <SectionCard
           title="Internships"
           description="Industry internships integrated into curriculum for final-year placement readiness."
+<<<<<<< HEAD
+=======
+          imageUrl="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
         />
       </section>
 

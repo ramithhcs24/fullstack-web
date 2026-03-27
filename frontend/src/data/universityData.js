@@ -33,6 +33,7 @@ export const DEPARTMENTS = [
     vision:
       "To build globally responsible computing professionals who solve real-world challenges.",
     programs: ["B.Tech CSE", "B.Tech AI & Data Science", "M.Tech CSE"],
+<<<<<<< HEAD
     faculty: [
       {
         name: "Dr. A. Krishnan",
@@ -53,6 +54,9 @@ export const DEPARTMENTS = [
         courses: ["Computer Networks", "Distributed Systems", "Web Technologies"],
       },
     ],
+=======
+    faculty: ["Dr. A. Krishnan", "Prof. Neha Rao", "Dr. Vivek Menon"],
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
   },
   {
     name: "Electronics and Communication Engineering",
@@ -62,6 +66,7 @@ export const DEPARTMENTS = [
     vision:
       "To drive innovation in connected systems and sustainable communication technologies.",
     programs: ["B.Tech ECE", "M.Tech Embedded Systems"],
+<<<<<<< HEAD
     faculty: [
       {
         name: "Dr. S. Meera",
@@ -82,6 +87,9 @@ export const DEPARTMENTS = [
         courses: ["IoT Architectures", "Embedded Systems", "Sensors & Actuators"],
       },
     ],
+=======
+    faculty: ["Dr. S. Meera", "Prof. Karthik Iyer", "Dr. Priya Nambiar"],
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
   },
   {
     name: "Mechanical Engineering",
@@ -91,6 +99,7 @@ export const DEPARTMENTS = [
     vision:
       "To lead in advanced manufacturing and intelligent mechanical solutions.",
     programs: ["B.Tech Mechanical", "M.Tech CAD/CAM"],
+<<<<<<< HEAD
     faculty: [
       {
         name: "Dr. Arjun Patel",
@@ -111,6 +120,9 @@ export const DEPARTMENTS = [
         courses: ["Thermodynamics", "Heat Transfer", "Energy Systems"],
       },
     ],
+=======
+    faculty: ["Dr. Arjun Patel", "Prof. M. Lakshmi", "Dr. Rohit Das"],
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
   },
   {
     name: "Civil Engineering",
@@ -120,6 +132,7 @@ export const DEPARTMENTS = [
     vision:
       "To shape resilient and sustainable built environments for future communities.",
     programs: ["B.Tech Civil", "M.Tech Structural Engineering"],
+<<<<<<< HEAD
     faculty: [
       {
         name: "Dr. Anitha George",
@@ -140,6 +153,9 @@ export const DEPARTMENTS = [
         courses: ["Water & Wastewater Engineering", "Environmental Systems", "Sustainable Construction"],
       },
     ],
+=======
+    faculty: ["Dr. Anitha George", "Prof. Harish Kulkarni", "Dr. G. Saravanan"],
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
   },
 ];
 

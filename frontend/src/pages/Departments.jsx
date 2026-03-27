@@ -1,5 +1,9 @@
 import PageHero from "../components/PageHero";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import SectionCard from "../components/SectionCard";
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
 import { DEPARTMENTS } from "../data/universityData";
 
 function Departments() {
@@ -26,6 +30,7 @@ function Departments() {
           </div>
 
           {/* GRID */}
+<<<<<<< HEAD
           <div className="grid gap-6 md:grid-cols-2">
             {DEPARTMENTS.map((dept) => (
               <div
@@ -47,6 +52,40 @@ function Departments() {
                   </Link>
                 </div>
               </div>
+=======
+          <div className="grid gap-10 md:grid-cols-2">
+            {DEPARTMENTS.map((dept) => (
+              <SectionCard
+                key={dept.code}
+                title={`${dept.code} — ${dept.name}`}
+                description={dept.about}
+              >
+                <div className="space-y-4 text-sm text-slate-400">
+
+                  <p>
+                    <span className="font-semibold text-white">
+                      Vision:
+                    </span>{" "}
+                    {dept.vision}
+                  </p>
+
+                  <p>
+                    <span className="font-semibold text-white">
+                      Programs:
+                    </span>{" "}
+                    {dept.programs.join(", ")}
+                  </p>
+
+                  <p>
+                    <span className="font-semibold text-white">
+                      Faculty:
+                    </span>{" "}
+                    {dept.faculty.join(", ")}
+                  </p>
+
+                </div>
+              </SectionCard>
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
             ))}
           </div>
 

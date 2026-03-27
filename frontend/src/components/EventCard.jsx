@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function hashToInt(input) {
   const str = String(input || "");
   let hash = 2166136261;
@@ -124,6 +125,11 @@ function getEventImage(event) {
 
   const pool = PHOTO_POOLS[theme.icon] || PHOTO_POOLS.spark;
   return pool[pickIndex % pool.length];
+=======
+function getEventImage(event) {
+  const seed = encodeURIComponent(`${event.club || "campus"}-${event.title || "event"}`);
+  return `https://picsum.photos/seed/${seed}/720/400`;
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
 }
 
 function EventCard({ event, interactive = true }) {

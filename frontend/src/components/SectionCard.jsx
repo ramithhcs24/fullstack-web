@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function svgToDataUri(svg) {
   // Use UTF-8 encoding so this works across browsers.
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
@@ -125,6 +126,10 @@ function getCardImage(title) {
   if (matched) {
     return makeTechCardSvg({ title, accentA: matched.accentA, accentB: matched.accentB, icon: matched.icon });
   }
+=======
+function getCardImage(title) {
+  const text = String(title || "").toLowerCase();
+>>>>>>> 165dce38ccd3b3a6c504d4663fa14275773fb2a6
 
   if (text.includes("placement") || text.includes("recruit")) {
     return "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80";
