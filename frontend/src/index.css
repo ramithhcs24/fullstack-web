@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: #0f172a;
+    color: #e2e8f0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(56, 189, 248, 0.25);
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-7xl px-4 lg:px-6;
+  }
+
+  .surface {
+    @apply rounded-2xl border border-white/10 bg-surface/80 shadow-soft backdrop-blur;
+  }
+
+  .surface-hover {
+    @apply transition duration-300 hover:-translate-y-0.5 hover:shadow-lift;
+  }
+
+  .subtle-ring {
+    @apply ring-1 ring-white/10;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-slate-950 hover:bg-sky-300;
+  }
+
+  .btn-secondary {
+    @apply border border-white/10 bg-white/5 text-slate-100 hover:bg-white/10;
+  }
+
+  .btn-ghost {
+    @apply text-slate-200 hover:bg-white/5;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-400 shadow-soft
+      transition focus:border-accent/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-accent/30;
+  }
+
+  .select {
+    @apply w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-slate-100 shadow-soft
+      transition focus:border-accent/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-accent/30;
+  }
+
+  .link {
+    @apply font-semibold text-accent hover:text-sky-300 transition;
+  }
+}
