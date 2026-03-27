@@ -6,7 +6,7 @@ import LoadingState from "../components/LoadingState";
 import SectionCard from "../components/SectionCard";
 import { HIGHLIGHTS, UNIVERSITY } from "../data/universityData";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://fullstack-web-mvpk.onrender.com/";
 
 function Home() {
   const [featuredEvents, setFeaturedEvents] = useState([]);

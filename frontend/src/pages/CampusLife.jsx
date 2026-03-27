@@ -5,7 +5,7 @@ import LoadingState from "../components/LoadingState";
 import PageHero from "../components/PageHero";
 import { CLUBS } from "../data/universityData";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://fullstack-web-mvpk.onrender.com/";
 
 function isGoogleFormsUrl(urlString) {
   try {
